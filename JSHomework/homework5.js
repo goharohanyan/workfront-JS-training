@@ -1,4 +1,4 @@
-// #1. Implement the indxeOf() method of array.
+// #1. Implement the indxeOf() method of array recursively.
 function indexOfImpl(arr, elem, start = 0, end = arr.length - 1) {
     if(start === end){
         if(arr[start] === elem) {
@@ -13,6 +13,24 @@ function indexOfImpl(arr, elem, start = 0, end = arr.length - 1) {
         return indexOfImpl(arr, elem, start, k - 1);
     } else {
         return indexOfImpl(arr, elem, k + 1, end);
+    }
+}
+// without recursion
+function indexOf_Impl(arr, elem) {
+    let start = 0;
+    let end = arr.length - 1;
+    while(start < end){
+        let k = start + Math.floor((end - start) / 2);
+        if(elem === arr[k]) {
+            return k;
+        } else if(elem < arr[k]) {
+            end = k - 1;
+        } else {
+            start = k + 1;
+        }
+        if(start ===  end){
+            return arr[start] === elem ? start : -1;
+        }
     }
 }
 
