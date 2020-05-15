@@ -46,6 +46,7 @@ function treeNodes(arr) {
     arr.splice(arr.indexOf(root), 1)
     let i = 0;
     while(arr.length) {
+        i = i % arr.length;
         let current = arr[i];
         if(setNewProp(result, current.id, current.children)) {
             arr.splice(i, 1);
@@ -67,7 +68,7 @@ function setNewProp(obj, id, arr ){
             }
             return obj[key];
         }
-        if(typeof obj[key] === 'object' && Object.entries(obj).length){
+        if(typeof obj[key] === 'object' && Object.entries(obj[key]).length){
             if(setNewProp(obj[key], id, arr)) return true;
         }
     }
