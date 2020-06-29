@@ -8,7 +8,7 @@ function isPrime(number){
     }
     return isPrime;
 }
-
+// 2nd comment
 
 // #2. Calculate nth Fibonacci number.
 function fib(n) {
